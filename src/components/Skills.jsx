@@ -1,0 +1,61 @@
+import { Database, Server, Cloud, Code, Shield } from 'lucide-react';
+
+const skillCategories = [
+  {
+    title: "Back-End & APIs",
+    icon: <Server className="w-6 h-6" />,
+    skills: ["Node.js", "Java", "Spring Boot", "TypeScript"]
+  },
+  {
+    title: "Front-End",
+    icon: <Code className="w-6 h-6" />,
+    skills: ["React", "Tailwind CSS", "JavaScript", "HTML/CSS"]
+  },
+  {
+    title: "Cloud & DevOps",
+    icon: <Cloud className="w-6 h-6" />,
+    skills: ["AWS (S3, EC2, Lambda)", "Docker", "Git/GitHub", "CI/CD (GitLab)"]
+  },
+  {
+    title: "Banco de Dados & ORM",
+    icon: <Database className="w-6 h-6" />,
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "Prisma"]
+  },
+  {
+    title: "Engenharia & Segurança",
+    icon: <Shield className="w-6 h-6" />,
+    skills: ["Clean Architecture", "Arquitetura MVC", "SOLID", "Keycloak", "Jest / JUnit"]
+  }
+];
+
+export default function Skills() {
+  return (
+    <section id="habilidades" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/50">
+      <div className="mb-12 text-center">
+        <h2 className="text-3xl font-bold tracking-tight mb-4">Habilidades Técnicas</h2>
+        <p className="text-slate-400 max-w-2xl mx-auto font-light">Especializações focadas no design de softwares confiáveis, escaláveis e na construção de infraestruturas cloud robustas.</p>
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skillCategories.map((category, index) => (
+          <div key={index} className="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl hover:bg-slate-800 hover:border-slate-700 transition-all duration-300">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-3 bg-indigo-500/10 text-indigo-400 rounded-lg">
+                {category.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-slate-200">{category.title}</h3>
+            </div>
+            <ul className="space-y-3">
+              {category.skills.map(skill => (
+                <li key={skill} className="flex items-center text-slate-400 font-light">
+                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mr-3"></span>
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
